@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"  layout:decorate="~{layouts/admin-view-default-layout}">
+
+<body>
+    <div class="container" layout:fragment="~{content}">
+        <a th:href="@{/admin/add-user}"
+           class="btn btn-primary btn-sm mb-3">
+            Add Client
+        </a>
+        <table class="table table-striped table-bordered">
+            <thead class="table table-header">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Active</th>
+                <th>User Type</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="tempUser: ${users}">
+                    <td th:text="${tempUser.firstName}"></td>
+                    <td th:text="${tempUser.lastName}"></td>
+                    <td th:text="${tempUser.emailAddress}"></td>
+                    <td th:text="${tempUser.enabled}"></td>
+                    <td th:text="${tempUser.userType.description}"></td>
+                    <td>
+                    <a th:href="@{/admin/updateForm(id=${tempUser.user_id})}"
+                       class="btn btn-info btn-sm">
+                        Update
+                    </a>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

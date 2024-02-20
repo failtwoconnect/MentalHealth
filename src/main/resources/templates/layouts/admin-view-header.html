@@ -1,0 +1,46 @@
+<div th:fragment="header">
+    <nav class="container navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TranquilityTrack</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active btn btn-secondary" aria-current="page" href="#" th:href="@{/admin/admin-view}">Home</a>
+                    </li>
+                    <div class="dropdown">
+                        <button class=" btn btn-secondary dropdown-toggle" type="button">
+                            Users
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" th:href="@{/admin/all-clients}" >All Client</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#" th:href="@{/admin/all-therapists}">All Therapist</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#" th:href="@{/admin/all-developers}">All developers</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/admin/admin-graphs}">Graphs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/admin/admin-graphs}">Numbers</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
