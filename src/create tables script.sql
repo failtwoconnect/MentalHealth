@@ -43,7 +43,7 @@ create table `users`(
     `email_address` varchar(100),
     `Date_of_Birth` date,
     `phone_number` varchar(15),
-    `username` varchar(50),
+    `username` varchar(68),
     `password` varchar(68),
     `user_type_id` int default null,
     `address_id` int default null,

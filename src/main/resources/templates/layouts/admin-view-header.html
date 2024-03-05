@@ -1,40 +1,31 @@
-<div th:fragment="header">
+<div th:fragment="~{header}">
     <nav class="container navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">TranquilityTrack</a>
+            <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active btn btn-secondary" aria-current="page" href="#" th:href="@{/admin/admin-view}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#" th:href="@{/admin/admin-view}">Home</a>
                     </li>
-                    <div class="dropdown">
-                        <button class=" btn btn-secondary dropdown-toggle" type="button">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Users
-                        </button>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" th:href="@{/admin/all-clients}" >All Client</a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="#" th:href="@{/admin/all-therapists}">All Therapist</a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="#" th:href="@{/admin/all-developers}">All developers</a>
-                            </li>
+                            <li><a class="dropdown-item" href="#" th:href="@{/admin/all-clients}">All Clients</a></li>
+                            <li><a class="dropdown-item" href="#" th:href="@{/admin/all-therapist}">All therapist</a></li>
+                            <li><a class="dropdown-item" href="#" th:href="@{/admin/all-developers}">All Developers</a></li>
                         </ul>
-                    </div>
-
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/admin-graphs}">Graphs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/admin/admin-graphs}">Numbers</a>
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                     </li>
-
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

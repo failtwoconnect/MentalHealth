@@ -22,5 +22,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query("update User set enabled = :enabled where user_id = :id")
     void updateUserByEnabled(boolean enabled, int id);
 
+    User findUserByUsername(String username);
 
 }

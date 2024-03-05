@@ -158,4 +158,23 @@ public class User {
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", dateofBirth=" + dateofBirth +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", address=" + address +
+                ", emergencyContact=" + emergencyContact +
+                ", userType=" + userType +
+                ", numbers=" + numbers +
+                '}';
+    }
 }

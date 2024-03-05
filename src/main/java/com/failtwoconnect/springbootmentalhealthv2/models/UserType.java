@@ -32,4 +32,12 @@ public class UserType {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "UserType{" +
+                "user_type_id=" + user_type_id +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

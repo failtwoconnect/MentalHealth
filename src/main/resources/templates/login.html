@@ -5,7 +5,7 @@
     <title>Login Page</title>
 </head>
 <body>
-    <div layout:fragment="content">
+    <div layout:fragment="~{content}">
         <div class="container">
             <form action="" class="form-control" th:action="@{/authenticateTheUser}" method="post">
                 <input type="text" name="username" placeholder="Username">

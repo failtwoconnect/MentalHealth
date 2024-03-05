@@ -18,4 +18,9 @@ public class ClientController {
     public String showGraphs(Model model){
         return "clients/client-graphs";
     }
+
+    @GetMapping("/client-add-numbers")
+    public String addNumbers(Model model){
+        return "clients/client-add-numbers";
+    }
 }

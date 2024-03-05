@@ -1,8 +1,16 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org"  layout:decorate="~{layouts/admin-view-default-layout}">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layouts/admin-view-default-layout}">
 
 <body>
     <div class="container" layout:fragment="~{content}">
+        <hr>
+        <label sec:authentication="principal.username"></label>
+        <br>
+        <label sec:authentication="principal.authorities"></label>
+        <hr>
         <a th:href="@{/admin/add-user}"
            class="btn btn-primary btn-sm mb-3">
             Add Client

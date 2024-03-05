@@ -1,9 +1,12 @@
 package com.failtwoconnect.springbootmentalhealthv2.Controllers;
 
+import com.failtwoconnect.springbootmentalhealthv2.exceptions.SaveFailedException;
 import com.failtwoconnect.springbootmentalhealthv2.models.*;
 import com.failtwoconnect.springbootmentalhealthv2.service.UserService;
 import com.failtwoconnect.springbootmentalhealthv2.service.UserTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,11 +30,13 @@ public class AdminController {
     @GetMapping("/admin-view")
     public String adminView(Model model){
         List<User> users = userService.findAllByEnabled(true);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         model.addAttribute("users", users);
         for(User user : users) {
             model.addAttribute("userType", user.getUserType());
         }
+        model.addAttribute("principal.authorities", auth.getAuthorities());
         return "admin/admin-view";
     }
 
@@ -61,7 +66,7 @@ public class AdminController {
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") User user){
+    public String saveUser(@ModelAttribute("user") User user) throws SaveFailedException {
         UserType userType = userTypeService.findById(user.getUserType().getUser_type_id());
         user.setUserType(userType);
         userService.save(user);
